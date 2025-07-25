@@ -1,6 +1,6 @@
-# Wordlist Word Grid Generator
+# BIP39 Wordlist Print Generator
 
-A modern Python solution for generating A4 word grids from multiple wordlists with numbered images using Jinja2 templates and WeasyPrint.
+A Python tool for generating printable A4 word grids from BIP39 seed phrase wordlists. Creates professional PDFs with 4×8 grids (32 words per page) perfect for offline seed phrase references, recovery guides, or language learning materials.
 
 ## 🚀 Quick Start
 
@@ -12,16 +12,16 @@ pip install jinja2 weasyprint pillow
 ### 2. Setup Sample Data
 ```bash
 # Create sample wordlist structure and test
-python wordlist_setup.py --all
+python wordlist_setup_script.py --all
 ```
 
 ### 3. Generate Word Grids
 ```bash
 # Process all wordlists
-python word_grid_generator.py --all
+python jinja_weasyprint_solution.py --all
 
 # Generate combined PDF
-python word_grid_generator.py --combined
+python jinja_weasyprint_solution.py --combined
 ```
 
 ## 📁 Directory Structure
@@ -51,24 +51,24 @@ wordlists/
 ### Process All Wordlists
 ```bash
 # Basic usage - processes all .txt files in wordlists/
-python word_grid_generator.py --all
+python jinja_weasyprint_solution.py --all
 
 # Custom output directory
-python word_grid_generator.py --all --output my_pdfs
+python jinja_weasyprint_solution.py --all --output my_pdfs
 
 # Custom title
-python word_grid_generator.py --all --title "My Vocabulary Cards"
+python jinja_weasyprint_solution.py --all --title "BIP39 Reference Cards"
 ```
 
 ### Process Specific Wordlist
 ```bash
 # Single wordlist with images
-python word_grid_generator.py \
+python jinja_weasyprint_solution.py \
   --wordlist wordlists/001.txt \
   --images wordlists/001
 
 # Without images
-python word_grid_generator.py \
+python jinja_weasyprint_solution.py \
   --wordlist wordlists/001.txt \
   --images wordlists/nonexistent
 ```
@@ -76,14 +76,14 @@ python word_grid_generator.py \
 ### Generate Combined PDF
 ```bash
 # Combine all wordlists into single PDF
-python word_grid_generator.py --combined
+python jinja_weasyprint_solution.py --combined
 
 # Combined with custom settings
-python word_grid_generator.py \
+python jinja_weasyprint_solution.py \
   --combined \
   --wordlists-dir my_wordlists \
   --output combined_output.pdf \
-  --title "Complete Vocabulary"
+  --title "Complete BIP39 Reference"
 ```
 
 ## 🖼️ Image Requirements
@@ -95,21 +95,29 @@ python word_grid_generator.py \
 
 ## 📋 Features
 
-- ✅ **A4 Print Format**: Precise margins and sizing for printing
-- ✅ **4×8 Grid Layout**: 32 words per page
-- ✅ **Multiple Wordlists**: Process multiple wordlists automatically
-- ✅ **Numbered Images**: Images matched by position (001.png, 002.png, etc.)
-- ✅ **Fallback Support**: Works with or without images
-- ✅ **Modern Typography**: Clean, professional layout
+- ✅ **BIP39 Focused**: Optimized for cryptocurrency seed phrase wordlists
+- ✅ **A4 Print Format**: Precise margins and sizing for offline storage
+- ✅ **4×8 Grid Layout**: 32 words per page for complete reference
+- ✅ **Multiple Languages**: Process BIP39 wordlists in 10+ languages
+- ✅ **Numbered Images**: Optional visual mnemonics (001.png, 002.png, etc.)
+- ✅ **Offline Reference**: Self-contained PDFs for secure storage
 - ✅ **Batch Processing**: Generate multiple PDFs at once
 - ✅ **Combined Output**: Merge multiple wordlists into single PDF
-- ✅ **HTML Preview**: Debug HTML files generated alongside PDFs
+- ✅ **Professional Layout**: Clean typography for easy reading
+
+## 🔐 BIP39 Use Cases
+
+- **Seed Phrase References**: Print complete wordlists for offline verification
+- **Recovery Guides**: Create backup reference materials
+- **Educational Materials**: Teaching cryptocurrency security concepts
+- **Language Learning**: Study BIP39 wordlists in different languages
+- **Secure Storage**: Offline reference materials for air-gapped systems
 
 ## 🛠️ Advanced Options
 
 ### Command Line Options
 ```bash
-python word_grid_generator.py --help
+python jinja_weasyprint_solution.py --help
 ```
 
 Key options:
@@ -123,23 +131,25 @@ Key options:
 
 ### Example Wordlist File (`001.txt`)
 ```
-Apple
-Banana
-Cherry
-Date
-Elderberry
-Fig
-Grape
-Honeydew
-Kiwi
-Lemon
-Mango
-Orange
-Papaya
-Quince
-Raspberry
-Strawberry
+abandon
+ability
+able
+about
+above
+absent
+absorb
+abstract
+absurd
+abuse
+access
+accident
+account
+accuse
+achieve
+acid
 ```
+
+*Note: This example shows the first 16 words from the BIP39 English wordlist. Each complete wordlist contains 32 words for a full page.*
 
 ## 🎨 Customization
 
@@ -185,13 +195,23 @@ For each wordlist, you get:
 - `wordlist_001.html` - HTML preview file
 - `combined_wordlists.pdf` - Combined PDF (if using --combined)
 
+## 🧰 Additional Tools
+
+This repository includes optional utilities:
+
+- **`generate_bip39_wordlists.py`**: Create wordlist files from official BIP39 data
+- **`generate_wordlist_images.py`**: Generate AI images for words using Stable Diffusion
+- **`wordlist_setup_script.py`**: Create sample data and test the generator
+
+These tools can be used to prepare custom wordlists and visual mnemonics.
+
 ## 🔧 Integration
 
 This tool can be integrated into larger workflows:
-- **Batch Processing**: Process hundreds of wordlists automatically
-- **CI/CD**: Generate PDFs as part of automated builds
-- **Educational Tools**: Create vocabulary cards for language learning
-- **Print Shops**: Generate print-ready materials
+- **Cryptocurrency Wallets**: Generate reference materials for users
+- **Security Training**: Create educational materials about seed phrases
+- **Offline Storage**: Generate reference materials for air-gapped systems
+- **Print Services**: Create professional reference materials
 
 ## 📄 License
 
