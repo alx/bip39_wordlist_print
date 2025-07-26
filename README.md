@@ -6,7 +6,12 @@ A Python tool for generating printable A4 word grids from BIP39 seed phrase word
 
 ### 1. Install Dependencies
 ```bash
+# Install from requirements file
+pip install -r requirements.txt
+
+# Or install manually
 pip install jinja2 pillow
+
 # Google Chrome must be installed separately
 ```
 
@@ -97,14 +102,16 @@ python jinja_chrome_solution.py \
 ## 📋 Features
 
 - ✅ **BIP39 Focused**: Optimized for cryptocurrency seed phrase wordlists
-- ✅ **A4 Print Format**: Precise margins and sizing for offline storage
+- ✅ **A4 Print Format**: Precise margins and sizing for offline storage  
 - ✅ **4×8 Grid Layout**: 32 words per page for complete reference
+- ✅ **Multi-Page Support**: Automatically handles wordlists >32 words with page breaks
 - ✅ **Multiple Languages**: Process BIP39 wordlists in 10+ languages
 - ✅ **Numbered Images**: Optional visual mnemonics (001.png, 002.png, etc.)
 - ✅ **Offline Reference**: Self-contained PDFs for secure storage
 - ✅ **Batch Processing**: Generate multiple PDFs at once
 - ✅ **Combined Output**: Merge multiple wordlists into single PDF
 - ✅ **Professional Layout**: Clean typography for easy reading
+- ✅ **Chrome Headless**: Reliable PDF generation using Google Chrome
 
 ## 🔐 BIP39 Use Cases
 
@@ -176,9 +183,14 @@ The generator uses Jinja2 templates, so you can customize:
 - Ensure wordlist files end with `.txt`
 
 **Import errors:**
-- Install dependencies: `pip install jinja2 pillow`
+- Install dependencies: `pip install -r requirements.txt`
 - Ensure Google Chrome is installed and available in PATH
 - On Linux: `sudo apt-get install google-chrome-stable`
+
+**Chrome/PDF generation issues:**
+- Ensure Google Chrome is installed and accessible from command line
+- Check that Chrome supports headless mode (most versions after 2017)
+- Try running: `google-chrome --version` or `chromium --version`
 
 **ImageMagick warnings (setup script):**
 - Install ImageMagick for placeholder image creation
@@ -202,8 +214,14 @@ For each wordlist, you get:
 This repository includes optional utilities:
 
 - **`generate_bip39_wordlists.py`**: Create wordlist files from official BIP39 data
-- **`generate_wordlist_images.py`**: Generate AI images for words using Stable Diffusion
+- **`generate_wordlist_images.py`**: Generate AI images for words using Stable Diffusion  
 - **`wordlist_setup_script.py`**: Create sample data and test the generator
+
+### Official BIP39 Wordlists
+
+The `bip39/` directory contains official BIP39 wordlists in multiple languages:
+- English, Chinese (Simplified/Traditional), Czech, French
+- Italian, Japanese, Korean, Portuguese, Spanish
 
 These tools can be used to prepare custom wordlists and visual mnemonics.
 
@@ -214,6 +232,14 @@ This tool can be integrated into larger workflows:
 - **Security Training**: Create educational materials about seed phrases
 - **Offline Storage**: Generate reference materials for air-gapped systems
 - **Print Services**: Create professional reference materials
+
+## 📊 Current Status
+
+The repository includes:
+- **64 Sample Wordlists** (001.txt through 064.txt) with corresponding images
+- **Official BIP39 Wordlists** in 10 languages (bip39/ directory)
+- **Chrome Headless Integration** for reliable PDF generation
+- **Full Test Suite** via wordlist_setup_script.py
 
 ## 📄 License
 

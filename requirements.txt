@@ -1,6 +1,9 @@
-jinja2>=3.0.0
-Pillow>=9.0.0
+# Core dependencies for word grid generation
+jinja2==3.1.6
+
 # Google Chrome required for PDF generation (install separately)
-# Optional dependencies for BIP39 image generation
-webuiapi>=0.9.0
-tqdm>=4.60.0
+
+# Optional dependencies for AI image generation (generate_wordlist_images.py)
+webuiapi==0.9.17
+tqdm==4.67.1
+requests==2.32.4
