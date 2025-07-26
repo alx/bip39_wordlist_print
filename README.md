@@ -1,12 +1,13 @@
 # BIP39 Wordlist Print Generator
 
-A Python tool for generating printable A4 word grids from BIP39 seed phrase wordlists. Creates professional PDFs with 4×8 grids (32 words per page) perfect for offline seed phrase references, recovery guides, or language learning materials.
+A Python tool for generating printable A4 word grids from BIP39 seed phrase wordlists using Google Chrome. Creates professional PDFs with 4×8 grids (32 words per page) perfect for offline seed phrase references, recovery guides, or language learning materials.
 
 ## 🚀 Quick Start
 
 ### 1. Install Dependencies
 ```bash
-pip install jinja2 weasyprint pillow
+pip install jinja2 pillow
+# Google Chrome must be installed separately
 ```
 
 ### 2. Setup Sample Data
@@ -18,10 +19,10 @@ python wordlist_setup_script.py --all
 ### 3. Generate Word Grids
 ```bash
 # Process all wordlists
-python jinja_weasyprint_solution.py --all
+python jinja_chrome_solution.py --all
 
 # Generate combined PDF
-python jinja_weasyprint_solution.py --combined
+python jinja_chrome_solution.py --combined
 ```
 
 ## 📁 Directory Structure
@@ -51,24 +52,24 @@ wordlists/
 ### Process All Wordlists
 ```bash
 # Basic usage - processes all .txt files in wordlists/
-python jinja_weasyprint_solution.py --all
+python jinja_chrome_solution.py --all
 
 # Custom output directory
-python jinja_weasyprint_solution.py --all --output my_pdfs
+python jinja_chrome_solution.py --all --output my_pdfs
 
 # Custom title
-python jinja_weasyprint_solution.py --all --title "BIP39 Reference Cards"
+python jinja_chrome_solution.py --all --title "BIP39 Reference Cards"
 ```
 
 ### Process Specific Wordlist
 ```bash
 # Single wordlist with images
-python jinja_weasyprint_solution.py \
+python jinja_chrome_solution.py \
   --wordlist wordlists/001.txt \
   --images wordlists/001
 
 # Without images
-python jinja_weasyprint_solution.py \
+python jinja_chrome_solution.py \
   --wordlist wordlists/001.txt \
   --images wordlists/nonexistent
 ```
@@ -76,10 +77,10 @@ python jinja_weasyprint_solution.py \
 ### Generate Combined PDF
 ```bash
 # Combine all wordlists into single PDF
-python jinja_weasyprint_solution.py --combined
+python jinja_chrome_solution.py --combined
 
 # Combined with custom settings
-python jinja_weasyprint_solution.py \
+python jinja_chrome_solution.py \
   --combined \
   --wordlists-dir my_wordlists \
   --output combined_output.pdf \
@@ -117,7 +118,7 @@ python jinja_weasyprint_solution.py \
 
 ### Command Line Options
 ```bash
-python jinja_weasyprint_solution.py --help
+python jinja_chrome_solution.py --help
 ```
 
 Key options:
@@ -175,8 +176,9 @@ The generator uses Jinja2 templates, so you can customize:
 - Ensure wordlist files end with `.txt`
 
 **Import errors:**
-- Install dependencies: `pip install jinja2 weasyprint pillow`
-- On Linux: May need `sudo apt-get install libpango-1.0-0 libharfbuzz0b libpangoft2-1.0-0`
+- Install dependencies: `pip install jinja2 pillow`
+- Ensure Google Chrome is installed and available in PATH
+- On Linux: `sudo apt-get install google-chrome-stable`
 
 **ImageMagick warnings (setup script):**
 - Install ImageMagick for placeholder image creation
@@ -215,4 +217,4 @@ This tool can be integrated into larger workflows:
 
 ## 📄 License
 
-Free to use and modify. Based on modern web technologies (Jinja2 + WeasyPrint) for professional PDF generation.
+Free to use and modify. Based on modern web technologies (Jinja2 + Google Chrome) for professional PDF generation.

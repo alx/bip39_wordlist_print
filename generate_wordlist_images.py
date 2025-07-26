@@ -358,7 +358,7 @@ def main():
     if not args.dry_run:
         print("\n✅ Image generation completed!")
         print("You can now use the generated images with:")
-        print("  python jinja_weasyprint_solution.py --all")
+        print("  python jinja_chrome_solution.py --all")
     
     return 0
 

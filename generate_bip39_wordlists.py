@@ -158,7 +158,7 @@ def main():
     if success:
         print("\n✅ Wordlist generation completed successfully!")
         print("\nYou can now use the generated wordlists with:")
-        print("  python jinja_weasyprint_solution.py --all")
+        print("  python jinja_chrome_solution.py --all")
     else:
         print("\n❌ Wordlist generation failed!")
         return 1
